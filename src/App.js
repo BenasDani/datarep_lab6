@@ -20,12 +20,13 @@ class App extends Component {
       <Router>
         <div className="App">
           
-          //creates navbar
+          {/* //creates navbar */}
           <Navbar bg="primary" variant="dark">
 
             <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link> //links to various pages
+            <Nav className="mr-auto">
+            {/* //links to various pages */}
+              <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/read">Read</Nav.Link>
               <Nav.Link href="/create">Create</Nav.Link>
             </Nav>
@@ -35,7 +36,7 @@ class App extends Component {
           <br />
 
 
-             //matches paths
+ {/* matches paths */}
           <Switch>
             <Route path='/' component={content} exact />
             <Route path='/create' component={Create} exact />
