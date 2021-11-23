@@ -15,7 +15,9 @@ export class read extends React.Component {
 
     componentDidMount() {
         // adding movies using json
-        axios.get('https://jsonblob.com/api/jsonblob/894944504570986496')
+        //react app is talking to the back end
+        
+        axios.get('http://localhost:4000/api/movies')
             .then((response) => {
                 this.setState({ movies: response.data.movies })
             })

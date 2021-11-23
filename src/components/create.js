@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 export class Create extends React.Component {
 
@@ -18,14 +19,28 @@ export class Create extends React.Component {
     }
 
     onSubmit(e) {
-        // stops from calling sam ebutton multiple times
+        // stops from calling same button multiple times
         e.preventDefault()
         alert("Movie: " + this.state.Title + " " + this.state.Year * " " + this.state.Poster);
+        
+        const newMovie= {
+            title: this.state.Title,
+            year: this.state.Year,
+            poster: this.state.Poster
+        };
+        axios.post('http://localhost:4000/api/movies',newMovie)
+        .then((res)=>{
+           console.log(res);
+        })
+
+        .catch((err)=>{
+            console.log(err);
+        })
     }
 
     onChangeTitle(e) {
         this.setState({
-            Title: e.Target.value
+            Title: e.target.value
         });
     }
 
@@ -44,13 +59,12 @@ export class Create extends React.Component {
         });
 
     }
-
+//making buttons and text box
     render() {
         return (
             <div className='App'>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
- {/* making the buttons and text box */}
                         <label>Add Movie Title: </label>
                         <input type='text'
                             className='form-control'
@@ -71,7 +85,7 @@ export class Create extends React.Component {
                         <label>Movies Poster: </label>
                         <textarea type='text'
                         className='form-control'
-                        value={this.onChangePoster}
+                        value={this.state.Poster}
                         onChange={this.onChangePoster}></textarea>
 
                     </div>

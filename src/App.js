@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Create } from './components/create.';
+import { Create } from './components/create';
 import { read } from './components/read';
 
 
